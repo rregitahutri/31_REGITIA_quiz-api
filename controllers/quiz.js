@@ -1,5 +1,6 @@
 const db = require("../models");
 const Quiz = db.quizzes;
+const User = db.user;
 
 //CREATE: untuk menambahkan data kedalam tabel quiz
 exports.create = async (req, res) => {
@@ -59,7 +60,7 @@ exports.delete = async (req, res) => {
 	try {
 		const quiz = await Quiz.findByPk(id, { rejectOnEmpty: true });
 
-		quiz.destory();
+		quiz.destroy();
 
 		res.json({
 			message: "Quiz deleted successfully.",
